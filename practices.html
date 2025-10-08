@@ -5,27 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Семестровая работа - Практики</title>
     <link rel="stylesheet" href="style/styles.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">Хэдер</div>
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Практические занятия</h1>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+                <li class="nav__item"><a class="nav__link" href="news.html">Новости</a></li>
+                <li class="nav__item nav__item--active"><a class="nav__link" href="practices.html">Практики</a></li>
+                <li class="nav__item"><a class="nav__link" href="goods.html">Товары</a></li>
+                <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+                <li class="nav__item">
+                    <button class="nav__link theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                        🌙 Тёмная
+                    </button>
+                </li>
             </ul>
-        </div>
-        <div class="content">
-            <h1 class="profile-title">Практические занятия</h1>
-            <div class="about-me">
-                <p>На этой странице будут размещаться материалы практических занятий по дисциплине "Фронтенд и бэкенд разработка".</p>
-                <p>Следите за обновлениями!</p>
-            </div>
-        </div>
-        <div class="footer">Футер</div>
+        </nav>
+
+        <main class="main">
+            <section class="practices">
+                <h2 class="practices__title">Практические материалы</h2>
+                <div class="practices__content">
+                    <div class="info-card">
+                        <p class="info-card__text">На этой странице будут размещаться материалы практических занятий по дисциплине "Фронтенд и бэкенд разработка".</p>
+                        <p class="info-card__text">Следите за обновлениями!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__text">© 2025 Мой сайт</p>
+        </footer>
     </div>
+    <script src="./theme.js"></script>
 </body>
 </html>

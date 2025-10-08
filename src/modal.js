@@ -79,7 +79,6 @@ function submitForm() {
     const contactModal = document.getElementById('contactModal');
     contactModal.close();
 
-    // очистка формы
     form.reset();
 }
 

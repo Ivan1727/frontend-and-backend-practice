@@ -1,53 +1,64 @@
 /* ==== СТИЛИ МОДАЛЬНОГО ОКНА ==== */
-dialog::backdrop {
+/* Блок: modal */
+.modal::backdrop {
     background: rgba(0, 0, 0, 0.6);
-    animation: fadeIn 0.3s ease;
+    animation: modalFadeIn 0.3s ease;
 }
 
-dialog {
+.modal {
     border: none;
     border-radius: 12px;
     padding: 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: slideIn 0.3s ease;
+    animation: modalSlideIn 0.3s ease;
     max-width: 500px;
     width: 90vw;
     max-height: 90vh;
     overflow-y: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
 }
 
-.modal-header {
+/* Элемент: modal__header */
+.modal__header {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
     padding: 1.5rem;
     border-radius: 12px 12px 0 0;
     margin: 0;
+    position: relative;
 }
 
-.modal-header h2 {
+.modal__title {
     margin: 0;
     color: white;
     font-size: 1.5rem;
+    font-weight: 600;
 }
 
-.modal-content {
+/* Элемент: modal__content */
+.modal__content {
     padding: 2rem;
 }
 
-.form-group {
+/* Блок: form */
+.form__group {
     margin-bottom: 1.5rem;
 }
 
-.form-group label {
+.form__label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: #2c3e50;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+.form__input,
+.form__select,
+.form__textarea {
     width: 100%;
     padding: 0.75rem;
     border: 2px solid #e9ecef;
@@ -55,28 +66,31 @@ dialog {
     font-size: 1rem;
     transition: border-color 0.3s ease;
     box-sizing: border-box;
+    font-family: inherit;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.form__input:focus,
+.form__select:focus,
+.form__textarea:focus {
     outline: none;
     border-color: #667eea;
 }
 
-.form-group textarea {
+.form__textarea {
     min-height: 100px;
     resize: vertical;
 }
 
-.modal-actions {
+/* Элемент: modal__actions */
+.modal__actions {
     display: flex;
     gap: 1rem;
     justify-content: flex-end;
     margin-top: 2rem;
 }
 
-.btn {
+/* Блок: button */
+.button {
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 6px;
@@ -84,79 +98,170 @@ dialog {
     font-size: 1rem;
     transition: all 0.3s ease;
     font-weight: 600;
+    font-family: inherit;
 }
 
-.btn-primary {
+.button--primary {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 }
 
-.btn-primary:hover {
+.button--primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-.btn-secondary {
+.button--secondary {
     background: #f8f9fa;
     color: #2c3e50;
     border: 2px solid #e9ecef;
 }
 
-.btn-secondary:hover {
+.button--secondary:hover {
     background: #e9ecef;
 }
 
-.required {
+/* Элемент: form__required */
+.form__required {
     color: #e74c3c;
 }
 
-@keyframes fadeIn {
+/* Анимации */
+@keyframes modalFadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes slideIn {
+@keyframes modalSlideIn {
     from {
         opacity: 0;
-        transform: translateY(-50px) scale(0.9);
+        transform: translate(-50%, -40%);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translate(-50%, -50%);
     }
 }
 
-/* Адаптивность */
+/* Модификатор: modal--centered */
+.modal--centered {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ==== АДАПТИВНОСТЬ ==== */
 @media (max-width: 600px) {
-    dialog {
-        margin: 1rem;
-        width: calc(100vw - 2rem);
+    .modal {
+        margin: 0;
+        width: 95vw;
+        max-height: 95vh;
     }
 
-    .modal-actions {
+    .modal__actions {
         flex-direction: column;
     }
 
-    .btn {
+    .button {
         width: 100%;
+    }
+    
+    .modal__content {
+        padding: 1.5rem;
+    }
+    
+    .modal__header {
+        padding: 1.25rem;
     }
 }
 
-/* Стили для валидации */
-.form-group input:invalid,
-.form-group select:invalid,
-.form-group textarea:invalid {
+/* ==== СТИЛИ ДЛЯ ВАЛИДАЦИИ ==== */
+.form__input:invalid,
+.form__select:invalid,
+.form__textarea:invalid {
     border-color: #e74c3c;
 }
 
-.form-group input:valid,
-.form-group select:valid,
-.form-group textarea:valid {
+.form__input:valid,
+.form__select:valid,
+.form__textarea:valid {
     border-color: #27ae60;
 }
 
+/* ==== УТИЛИТЫ ==== */
 /* Стили для форматированного телефона */
 .phone-formatted {
     font-family: monospace;
     letter-spacing: 1px;
+}
+
+/* Стили для скрытия scrollbar при открытом модальном окне */
+body:has(.modal[open]) {
+    overflow: hidden;
+}
+/* Темная тема для модального окна */
+[data-theme="dark"] .modal {
+  background: var(--color-white);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .modal__header {
+  background: var(--gradient-dark);
+}
+
+[data-theme="dark"] .form__input,
+[data-theme="dark"] .form__select,
+[data-theme="dark"] .form__textarea {
+  background: var(--color-dark);
+  color: var(--color-text);
+  border-color: #444;
+}
+
+[data-theme="dark"] .form__input:focus,
+[data-theme="dark"] .form__select:focus,
+[data-theme="dark"] .form__textarea:focus {
+  border-color: var(--color-accent);
+}
+
+[data-theme="dark"] .button--secondary {
+  background: var(--color-light);
+  color: var(--color-text);
+  border-color: #444;
+}
+
+[data-theme="dark"] .button--secondary:hover {
+  background: #333;
+}
+/* Темная тема для модального окна */
+[data-theme="dark"] .modal {
+  background: var(--color-white);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .modal__header {
+  background: var(--gradient-dark);
+}
+
+[data-theme="dark"] .form__input,
+[data-theme="dark"] .form__select,
+[data-theme="dark"] .form__textarea {
+  background: var(--color-dark);
+  color: var(--color-text);
+  border-color: #444;
+}
+
+[data-theme="dark"] .form__input:focus,
+[data-theme="dark"] .form__select:focus,
+[data-theme="dark"] .form__textarea:focus {
+  border-color: var(--color-accent);
+}
+
+[data-theme="dark"] .button--secondary {
+  background: var(--color-light);
+  color: var(--color-text);
+  border-color: #444;
+}
+
+[data-theme="dark"] .button--secondary:hover {
+  background: #333;
 }

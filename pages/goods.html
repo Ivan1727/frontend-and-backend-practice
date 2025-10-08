@@ -5,51 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Семестровая работа - Товары</title>
     <link rel="stylesheet" href="style/styles.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">Хэдер</div>
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Наши товары</h1>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+                <li class="nav__item"><a class="nav__link" href="news.html">Новости</a></li>
+                <li class="nav__item"><a class="nav__link" href="practices.html">Практики</a></li>
+                <li class="nav__item nav__item--active"><a class="nav__link" href="goods.html">Товары</a></li>
+                <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+                <li class="nav__item">
+                    <button class="nav__link theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                        🌙 Тёмная
+                    </button>
+                </li>
             </ul>
-        </div>
-        <div class="content">
-            <h1 class="profile-title">Наши товары</h1>
-            <div class="goods-section">
-                <div class="goods-grid">
-                    <div class="good-card">
-                        <img src="goods1.jpg" alt="Товар 1" class="good-image">
-                        <div class="good-info">
-                            <h3 class="good-title">DNS БАТЯ</h3>
-                            <p class="good-price">1500 руб.</p>
-                            <p class="good-description">Будет твоим личным консультантом, всегда посоветует "лучшее из лучших"</p>
+        </nav>
+
+        <main class="main">
+            <section class="goods">
+                <h2 class="goods__title">Каталог товаров</h2>
+                <div class="goods__grid">
+                    <article class="product-card">
+                        <img src="goods1.jpg" alt="Товар 1" class="product-card__image">
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">DNS БАТЯ</h3>
+                            <p class="product-card__price">1500 руб.</p>
+                            <p class="product-card__description">Будет твоим личным консультантом, всегда посоветует "лучшее из лучших"</p>
                         </div>
-                    </div>
-                    <div class="good-card">
-                        <img src="goods2.jpg" alt="Товар 2" class="good-image">
-                        <div class="good-info">
-                            <h3 class="good-title">Коты белые</h3>
-                            <p class="good-price">2000 руб.</p>
-                            <p class="good-description">Живые</p>
+                    </article>
+                    
+                    <article class="product-card">
+                        <img src="goods2.jpg" alt="Товар 2" class="product-card__image">
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">Котые белые</h3>
+                            <p class="product-card__price">2000 руб.</p>
+                            <p class="product-card__description">Живые</p>
                         </div>
-                    </div>
-                    <div class="good-card">
-                        <img src="goods3.jpg" alt="Товар 3" class="good-image">
-                        <div class="good-info">
-                            <h3 class="good-title">Кекс и книга combo</h3>
-                            <p class="good-price">2500 руб.</p>
-                            <p class="good-description">Два самых необходимых предмета в жизни</p>
+                    </article>
+                    
+                    <article class="product-card">
+                        <img src="goods3.jpg" alt="Товар 3" class="product-card__image">
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">Кекс и книга combo</h3>
+                            <p class="product-card__price">2500 руб.</p>
+                            <p class="product-card__description">Два самых необходимых предмета в жизни</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
-            </div>
-        </div>
-        <div class="footer">Футер</div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__text">© 2025 Мой сайт</p>
+        </footer>
     </div>
+    <script src="./theme.js"></script>
 </body>
 </html>

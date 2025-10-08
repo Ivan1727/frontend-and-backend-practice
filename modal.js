@@ -106,15 +106,16 @@ function autoFillPhone() {
     }
 }
 
+// открытие модального окна
+function openModal() {
+    const contactModal = document.getElementById('contactModal');
+    contactModal.showModal();
+    autoFillPhone();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const contactModal = document.getElementById('contactModal');
     const phoneInput = document.getElementById('phone');
-    
-    if (contactModal) {
-        contactModal.addEventListener('show', function() {
-            autoFillPhone();
-        });
-    }
     
     if (phoneInput) {
         phoneInput.addEventListener('input', function() {

@@ -5,42 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Семестровая работа - Новости</title>
     <link rel="stylesheet" href="style/styles.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">Хэдер</div>
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Новости</h1>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+                <li class="nav__item nav__item--active"><a class="nav__link" href="news.html">Новости</a></li>
+                <li class="nav__item"><a class="nav__link" href="practices.html">Практики</a></li>
+                <li class="nav__item"><a class="nav__link" href="goods.html">Товары</a></li>
+                <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+                <li class="nav__item">
+                    <button class="nav__link theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                        🌙 Тёмная
+                    </button>
+                </li>
             </ul>
-        </div>
-        <div class="content">
-            <h1 class="profile-title">Новости</h1>
-            <div class="news-section">
-                <div class="news-list">
-                    <div class="news-card">
-                        <h3 class="news-title">Запуск нового сайта</h3>
-                        <p class="news-date">01.10.2025</p>
-                        <p class="news-summary">Мы рады сообщить о запуске нашего нового веб-сайта. Теперь вся информация доступна в современном и удобном формате.</p>
-                    </div>
-                    <div class="news-card">
-                        <h3 class="news-title">Обновление ассортимента</h3>
-                        <p class="news-date">25.09.2025</p>
-                        <p class="news-summary">В разделе "Товары" появились новые позиции. Все товары прошли контроль качества и готовы к заказу.</p>
-                    </div>
-                    <div class="news-card">
-                        <h3 class="news-title">Технические работы</h3>
-                        <p class="news-date">15.09.2025</p>
-                        <p class="news-summary">15 сентября с 23:00 до 01:00 будут проводиться технические работы. Приносим извинения за временные неудобства.</p>
-                    </div>
+        </nav>
+
+        <main class="main">
+            <section class="news">
+                <h2 class="news__title">Последние новости</h2>
+                <div class="news__list">
+                    <article class="news-item">
+                        <h3 class="news-item__title">Запуск нового сайта</h3>
+                        <time class="news-item__date" datetime="2025-10-01">01.10.2025</time>
+                        <p class="news-item__text">Мы рады сообщить о запуске нашего нового веб-сайта. Теперь вся информация доступна в современном и удобном формате.</p>
+                    </article>
+                    
+                    <article class="news-item">
+                        <h3 class="news-item__title">Обновление ассортимента</h3>
+                        <time class="news-item__date" datetime="2025-09-25">25.09.2025</time>
+                        <p class="news-item__text">В разделе "Товары" появились новые позиции. Все товары прошли контроль качества и готовы к заказу.</p>
+                    </article>
+                    
+                    <article class="news-item">
+                        <h3 class="news-item__title">Технические работы</h3>
+                        <time class="news-item__date" datetime="2025-09-15">15.09.2025</time>
+                        <p class="news-item__text">15 сентября с 23:00 до 01:00 будут проводиться технические работы. Приносим извинения за временные неудобства.</p>
+                    </article>
                 </div>
-            </div>
-        </div>
-        <div class="footer">Футер</div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__text">© 2025 Мой сайт</p>
+        </footer>
     </div>
+    <script src="./theme.js"></script>
 </body>
 </html>
