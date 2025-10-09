@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Портфолио</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body class="index-page">
+    <!-- Основной контейнер -->
+    <div class="page">
+        <!-- Шапка -->
+        <header class="header">
+            <h1 class="header__title">Моё портфолио</h1>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+                <li class="nav__item">
+                    <button class="nav__link theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                        🌙 Тёмная
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main">
+            <!-- Профиль -->
+            <section class="profile">
+                <div class="profile__card">
+                    <img class="profile__photo" src="photo.jpg" alt="Фото автора">
+                    <div class="profile__info">
+                        <h2 class="profile__name">Мухин Иван Ильич</h2>
+                        <p class="profile__group">ЭФБО-13-24</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Обо мне -->
+            <section class="about">
+                <h2 class="about__title">Обо мне</h2>
+                <div class="about__content">
+                    <p class="about__text">
+                        Вырос, пока интернет загружался. Мои университеты — скамейка и компьютерный клуб.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Навыки -->
+            <section class="skills">
+                <h2 class="skills__title">Мои навыки</h2>
+                <div class="skills__list">
+                    <div class="skill skill--first">
+                        <span class="skill__name">Гугление</span>
+                    </div>
+                    <div class="skill skill--second">
+                        <span class="skill__name">Отсиживание</span>
+                    </div>
+                    <div class="skill skill--third">
+                        <span class="skill__name">Безмозглие</span>
+                    </div>
+                    <div class="skill skill--fourth">
+                        <span class="skill__name">Юмор?</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Опыт работы -->
+            <section class="projects">
+                <h2 class="projects__title">Опыт работы</h2>
+                <div class="projects__grid">
+                    <div class="project-card">
+                        <h3 class="project-card__title">Айтишник</h3>
+                        <p class="project-card__desc">Сеньор по придумыванию отмазок. Оправдывал и верил.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3 class="project-card__title">Криптоинвестор</h3>
+                        <p class="project-card__desc">Крипто-пророк. Предсказывал и ошибался.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3 class="project-card__title">Мастер по увольнениям</h3>
+                        <p class="project-card__desc">Специалист по горькой правде. Говорил и увольнялся.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Подвал -->
+        <footer class="footer">
+            <p class="footer__text">© 2025 Мой сайт</p>
+        </footer>
+    </div>
+    <script src="./theme.js"></script>
+</body>
+</html>
